@@ -226,7 +226,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (2,'caio','silva','caiosilva@gmail.com','123456','34995625487','1998-02-15','71738149013'),(3,'amanda','teixeira','amandateixeira@gmail.com','123456','34995647854','1960-05-27','17858992000195'),(4,'patricia','tostes','patriciatostes@gmail.com','123456','34983599945','1997-06-13','40113990006'),(5,'lucas','pereira','lucaspereira@gmail.com','123456','34984568794','1985-03-21','90254619053'),(6,'ricardo','cavalcante','ricardocavalcante@gmail.com','123456','34998652247','1977-11-03','34249629000191');
+INSERT INTO `usuario` VALUES (2,'caio','cesar silva','caiosilva@gmail.com','123456','34995625487','1998-02-15','71738149013'),(3,'amanda','teixeira','amandateixeira@gmail.com','123456','34995647854','1960-05-27','17858992000195'),(4,'patricia','tostes','patriciatostes@gmail.com','123456','34983599945','1997-06-13','40113990006'),(5,'lucas','pereira','lucaspereira@gmail.com','123456','34984568794','1985-03-21','90254619053'),(6,'ricardo','cavalcante','ricardocavalcante@gmail.com','123456','34998652247','1977-11-03','34249629000191');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -239,4 +239,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-19  8:33:01
+-- Dump completed on 2020-10-19  8:46:28

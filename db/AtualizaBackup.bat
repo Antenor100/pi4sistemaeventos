@@ -12,14 +12,13 @@ if exist "%mysqlBin%" (
     set dirAlvo="default"
 
 ) else (
-    set mysqlBin="%MYSQL_BIN%"
     
-    if "%mysqlBin%" == "" (
+    if "%MYSQL_BIN%" == "" (
         echo O caminho padrao "C:\Program Files\MySQL\MySQL Server 5.7\bin" da pasta bin do mysql nao foi encontrado. Por favor, defina a variavel de ambiente "MYSQL_BIN" com o caminho da pasta bin no local de instalacao do seu MySql.
         set prossegue="false"
 
     ) else (
-        echo usando MYSQL_BIN = "%mysqlBin%"
+        echo usando MYSQL_BIN = "%MYSQL_BIN%"
         set prossegue="true"
         set dirAlvo="caminhoSetado"
     )
