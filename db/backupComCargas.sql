@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
--- Host: localhost    Database: EVENTDB
+-- Host: localhost    Database: eventdb
 -- ------------------------------------------------------
 -- Server version	8.0.21
 
@@ -52,6 +52,7 @@ CREATE TABLE `certificado` (
   `LINK` varchar(50) DEFAULT NULL,
   `ID_EVENTO` int DEFAULT NULL,
   `ID_USUARIO` int DEFAULT NULL,
+  `DATAEMISSAO` date DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `ID_EVENTO` (`ID_EVENTO`),
   KEY `ID_USUARIO` (`ID_USUARIO`),
@@ -66,7 +67,7 @@ CREATE TABLE `certificado` (
 
 LOCK TABLES `certificado` WRITE;
 /*!40000 ALTER TABLE `certificado` DISABLE KEYS */;
-INSERT INTO `certificado` VALUES (1,'certificados/caio.pdf',6,2);
+INSERT INTO `certificado` VALUES (1,'certificados/caio.pdf',6,2,'2020-11-22');
 /*!40000 ALTER TABLE `certificado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,11 +87,10 @@ CREATE TABLE `endereco` (
   `COMPLEMENTO` varchar(60) DEFAULT NULL,
   `CIDADE` varchar(60) DEFAULT NULL,
   `ESTADO` char(2) DEFAULT NULL,
-  `ID_EVENTO` int DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `ID_EVENTO` (`ID_EVENTO`),
-  CONSTRAINT `endereco_ibfk_1` FOREIGN KEY (`ID_EVENTO`) REFERENCES `evento` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `LINK` varchar(60) DEFAULT NULL,
+  `PLATAFORMA` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,7 +99,7 @@ CREATE TABLE `endereco` (
 
 LOCK TABLES `endereco` WRITE;
 /*!40000 ALTER TABLE `endereco` DISABLE KEYS */;
-INSERT INTO `endereco` VALUES (1,'38408251','Av. José Roberto Migliorini',0,'Santa Mônica','Estadio parque sabiá','Uberlândia','MG',9),(2,'38411104','R. Blanche Galassi',150,'Altamira, Uberlândia','Predio na esquina branco','Uberlândia','MG',6),(3,'38411411','Av. Lidormira Borges do Nascimento',2005,'Shopping Park','predio bonito top grama na porta','Uberlândia','MG',10);
+INSERT INTO `endereco` VALUES (1,'38408251','Av. José Roberto Migliorini',0,'Santa Mônica','Estadio parque sabiá','Uberlândia','MG',NULL,NULL),(2,'38411104','R. Blanche Galassi',150,'Altamira, Uberlândia','Predio na esquina branco','Uberlândia','MG',NULL,NULL),(3,'38411411','Av. Lidormira Borges do Nascimento',2005,'Shopping Park','predio bonito top grama na porta','Uberlândia','MG',NULL,NULL),(4,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'https://meet.google.com/pav-uyfw-gbvedads','Google Meet'),(5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'https://meet.google.com/asv-asdw-ggertccs','Google Meet');
 /*!40000 ALTER TABLE `endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,11 +120,14 @@ CREATE TABLE `evento` (
   `QTDMAXIMAINGRESSO` int DEFAULT NULL,
   `ID_USUARIO` int DEFAULT NULL,
   `ID_CATEGORIA` int DEFAULT NULL,
+  `ID_ENDERECO` int DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `ID_USUARIO` (`ID_USUARIO`),
   KEY `ID_CATEGORIA` (`ID_CATEGORIA`),
+  KEY `evento_ibfk_3` (`ID_ENDERECO`),
   CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuario` (`ID`),
-  CONSTRAINT `evento_ibfk_2` FOREIGN KEY (`ID_CATEGORIA`) REFERENCES `categoria` (`ID`)
+  CONSTRAINT `evento_ibfk_2` FOREIGN KEY (`ID_CATEGORIA`) REFERENCES `categoria` (`ID`),
+  CONSTRAINT `evento_ibfk_3` FOREIGN KEY (`ID_ENDERECO`) REFERENCES `endereco` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -134,36 +137,8 @@ CREATE TABLE `evento` (
 
 LOCK TABLES `evento` WRITE;
 /*!40000 ALTER TABLE `evento` DISABLE KEYS */;
-INSERT INTO `evento` VALUES (6,'Seminário GDG','imagens/gdg.png','2020-10-05 11:30:00','2020-10-06 17:00:00','Evento sobre tecnologia que voce precisa ver!',400,3,1),(7,'Curso sobre python','imagens/python.png','2020-11-27 14:00:00','2020-11-27 18:00:00','Curso de python para iniciantes',50,3,2),(8,'Curso sobre java','imagens/java.png','2020-11-27 14:00:00','2020-11-27 19:00:00','Curso de java para iniciantes',50,6,2),(9,'Jogo de futebol para 8 times','imagens/futebol.png','2020-12-01 14:30:00','2020-12-01 18:00:00','Jogo de futebol em quadra society com 8 times e premio para o campeao',40,5,3),(10,'Udi reveillon 2021','imagens/udireve.png','2020-12-31 22:00:00','2021-01-01 08:30:00','Evento para reunião e fogos para o reveillon de 2021!',10000,6,5);
+INSERT INTO `evento` VALUES (6,'Seminário GDG','imagens/gdg.png','2020-10-05 11:30:00','2020-10-06 17:00:00','Evento sobre tecnologia que voce precisa ver!',400,3,1,4),(7,'Curso sobre python','imagens/python.png','2020-11-27 14:00:00','2020-11-27 18:00:00','Curso de python para iniciantes',50,3,2,5),(8,'Curso sobre java','imagens/java.png','2020-11-27 14:00:00','2020-11-27 19:00:00','Curso de java para iniciantes',50,6,2,1),(9,'Jogo de futebol para 8 times','imagens/futebol.png','2020-12-01 14:30:00','2020-12-01 18:00:00','Jogo de futebol em quadra society com 8 times e premio para o campeao',40,5,3,2),(10,'Udi reveillon 2021','imagens/udireve.png','2020-12-31 22:00:00','2021-01-01 08:30:00','Evento para reunião e fogos para o reveillon de 2021!',10000,6,5,3);
 /*!40000 ALTER TABLE `evento` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `eventoonline`
---
-
-DROP TABLE IF EXISTS `eventoonline`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `eventoonline` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `LINK` varchar(100) DEFAULT NULL,
-  `PLATAFORMA` varchar(60) DEFAULT NULL,
-  `ID_EVENTO` int DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `ID_EVENTO` (`ID_EVENTO`),
-  CONSTRAINT `eventoonline_ibfk_1` FOREIGN KEY (`ID_EVENTO`) REFERENCES `evento` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `eventoonline`
---
-
-LOCK TABLES `eventoonline` WRITE;
-/*!40000 ALTER TABLE `eventoonline` DISABLE KEYS */;
-INSERT INTO `eventoonline` VALUES (1,'https://www.cursopythononline.com.br','Zoom',7),(2,'https://www.cursojavaonline.com.br','Google Meet',8);
-/*!40000 ALTER TABLE `eventoonline` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -209,13 +184,14 @@ DROP TABLE IF EXISTS `usuario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `NOME` varchar(50) DEFAULT NULL,
-  `SOBRENOME` varchar(60) DEFAULT NULL,
+  `NOME` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `RAZAOSOCIAL` varchar(60) DEFAULT NULL,
   `EMAIL` varchar(100) DEFAULT NULL,
   `SENHA` varchar(100) DEFAULT NULL,
   `TELEFONE` varchar(60) DEFAULT NULL,
   `DATANASCIMENTO` date DEFAULT NULL,
-  `CPFCNPJ` varchar(14) DEFAULT NULL,
+  `CPF` char(11) DEFAULT NULL,
+  `CNPJ` char(14) DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -226,7 +202,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (2,'caio','cesar silva','caiosilva@gmail.com','123456','34995625487','1998-02-15','71738149013'),(3,'amanda','teixeira','amandateixeira@gmail.com','123456','34995647854','1960-05-27','17858992000195'),(4,'patricia','tostes','patriciatostes@gmail.com','123456','34983599945','1997-06-13','40113990006'),(5,'lucas','pereira','lucaspereira@gmail.com','123456','34984568794','1985-03-21','90254619053'),(6,'ricardo','cavalcante','ricardocavalcante@gmail.com','123456','34998652247','1977-11-03','34249629000191');
+INSERT INTO `usuario` VALUES (2,'caio','cesar silva','caiosilva@gmail.com','123456','34995625487','1998-02-15',NULL,'98756321654527'),(3,'amanda','teixeira','amandateixeira@gmail.com','123456','34995647854','1960-05-27',NULL,'68732135468444'),(4,'patricia','tostes','patriciatostes@gmail.com','123456','34983599945','1997-06-13','41045874514',NULL),(5,'lucas','pereira','lucaspereira@gmail.com','123456','34984568794','1985-03-21','65487452157',NULL),(6,'ricardo','cavalcante','ricardocavalcante@gmail.com','123456','34998652247','1977-11-03','36548798458',NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -239,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-19  8:46:28
+-- Dump completed on 2020-11-22 15:42:47
