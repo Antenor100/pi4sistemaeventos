@@ -1,39 +1,44 @@
 package com.iftm.course.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
-@Table(name = "tb_category")
-public class Category implements Serializable {
-	private static final long serialVersionUID = 1L;
 
+@Entity
+@Table(name = "categoria")
+public class Categoria implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String nome;
+	private String descricao;
 	
 	@JsonIgnore
-	@ManyToMany(mappedBy = "categories")
-	private Set<Product> products = new HashSet<>();
+	@OneToMany(mappedBy = "categoria")
+	private List<Evento> eventos = new ArrayList<>();
 	
-	public Category() {
+	
+	public Categoria() {
+		
 	}
 
-	public Category(Long id, String name) {
+	public Categoria(Long id, String nome, String descricao) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.nome = nome;
+		this.descricao = descricao;
 	}
 
 	public Long getId() {
@@ -44,16 +49,25 @@ public class Category implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	
-	public Set<Product> getProducts() {
-		return products;
+
+	public List<Evento> getEventos() {
+		return eventos;
 	}
 
 	@Override
@@ -72,7 +86,7 @@ public class Category implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category other = (Category) obj;
+		Categoria other = (Categoria) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -81,4 +95,6 @@ public class Category implements Serializable {
 		return true;
 	}
 	
+	
+
 }
