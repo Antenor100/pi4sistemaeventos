@@ -51,7 +51,7 @@ public class Usuario implements Serializable{
 	}
 
 	public Usuario(Long id, String nome, String razaoSocial, String email, String senha, Date dataNascimento,
-			String cpf, String cnpj, Ingresso ingresso) {
+			String cpf, String cnpj) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -61,7 +61,6 @@ public class Usuario implements Serializable{
 		this.dataNascimento = dataNascimento;
 		this.cpf = cpf;
 		this.cnpj = cnpj;
-		this.ingresso = ingresso;
 	}
 
 	public Long getId() {

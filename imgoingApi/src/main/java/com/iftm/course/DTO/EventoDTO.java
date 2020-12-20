@@ -1,73 +1,34 @@
-package com.iftm.course.entities;
-
+package com.iftm.course.DTO;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import com.iftm.course.entities.Categoria;
+import com.iftm.course.entities.Endereco;
+import com.iftm.course.entities.Evento;
+import com.iftm.course.entities.Usuario;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
-@Entity
-@Table(name = "evento")
-public class Evento  implements Serializable{
+public class EventoDTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
 	private String titulo;
 	private String imagem;
-	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Date dataHoraInicio;
-	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Date dataHoraTermino;
-	
 	private String descricao;
 	private Integer qtdeMaximaIngresso;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_categoria")
 	private Categoria categoria;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "evento")
-	private List<Certificado> certificados = new ArrayList<>();
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "evento")
-	private List<Ingresso> ingresso = new ArrayList<>();
-	
-	@ManyToOne
-	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_endereco")
 	private Endereco endereco;
 	
-	public Evento() {
+	public EventoDTO() {
 		
-	}
+	}	
 
-	public Evento(Long id, String titulo, String imagem, Date dataHoraInicio, Date dataHoraTermino, String descricao,
-			Integer qtdeMaximaIngresso,Categoria categoria, Usuario usuario, Endereco endereco) {
+	public EventoDTO(Long id, String titulo, String imagem, Date dataHoraInicio, Date dataHoraTermino, String descricao,
+			Integer qtdeMaximaIngresso, Categoria categoria, Usuario usuario, Endereco endereco) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -80,6 +41,20 @@ public class Evento  implements Serializable{
 		this.usuario = usuario;
 		this.endereco = endereco;
 	}
+
+	public EventoDTO(Evento entity) {
+		this.id = entity.getId();
+		this.titulo = entity.getTitulo();
+		this.imagem = entity.getImagem();
+		this.dataHoraInicio = entity.getDataHoraInicio();
+		this.dataHoraTermino = entity.getDataHoraTermino();
+		this.descricao = entity.getDescricao();
+		this.qtdeMaximaIngresso = entity.getQtdeMaximaIngresso();
+		this.categoria = entity.getCategoria();
+		this.usuario = entity.getUsuario();
+		this.endereco = entity.getEndereco();
+	}
+	
 
 	public Long getId() {
 		return id;
@@ -136,7 +111,6 @@ public class Evento  implements Serializable{
 	public void setQtdeMaximaIngresso(Integer qtdeMaximaIngresso) {
 		this.qtdeMaximaIngresso = qtdeMaximaIngresso;
 	}
-	
 
 	public Categoria getCategoria() {
 		return categoria;
@@ -145,15 +119,7 @@ public class Evento  implements Serializable{
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
-	public List<Certificado> getCertificados() {
-		return certificados;
-	}
-	
-	public List<Ingresso> getIngresso() {
-		return ingresso;
-	}
-	
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -161,7 +127,7 @@ public class Evento  implements Serializable{
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
@@ -170,30 +136,7 @@ public class Evento  implements Serializable{
 		this.endereco = endereco;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
+	public Evento toEntity() {
+		return new Evento(id, titulo, imagem, dataHoraInicio, dataHoraTermino, descricao, qtdeMaximaIngresso, categoria, usuario, endereco);
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Evento other = (Evento) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-
-	
 }
