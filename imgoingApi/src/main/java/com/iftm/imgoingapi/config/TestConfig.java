@@ -41,16 +41,11 @@ public class TestConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Usuario usu1 = new Usuario(null, "Anderson", null, "Anderson@gmail.com", "kuhbdwadaw45wd", new Date(), "12547854785", null);	
-		
+		Usuario usu1 = new Usuario(null, "Anderson", null, "Anderson@gmail.com", "kuhbdwadaw45wd", new Date(), "12547854785", null);
 		Categoria cat1 = new Categoria(null, "Acadêmico", "CUrso sobre botânica");
-		
 		Endereco end1 = new Endereco(null, "13600755", "Rua tanto faz teste", 55, "Santo teste", "Apartamento 12", "Uberlândia", "MG", null, null);
-
 		Evento eve1 = new Evento(null, "Gostronomia com zé", "url/img/gastroeven", new Date(), new Date(), "Evento de gastronomia com o chefe zé ", 60, cat1, usu1, end1);
-
 		Ingresso ing1 = new Ingresso(null, 50d, new Date(), 25d, new Date(), FormaPagamento.PAGAMENTO_BOLETO, usu1, eve1);
-
 		Certificado cer1 = new Certificado(null, "www.linkdocertificado.com.br", new Date(), eve1, usu1);
 
 		usuarioRepository.save(usu1);	

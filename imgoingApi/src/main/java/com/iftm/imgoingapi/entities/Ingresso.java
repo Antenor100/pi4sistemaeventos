@@ -3,15 +3,7 @@ package com.iftm.imgoingapi.entities;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.iftm.imgoingapi.entities.enums.FormaPagamento;
 
@@ -30,9 +22,9 @@ public class Ingresso implements Serializable{
 	private Double valorPagamento;
 	private Date dataAquisicao;
 	private FormaPagamento formaPagamento;
-		
-	@OneToOne
-	@MapsId
+
+	@ManyToOne
+	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 	
 	@ManyToOne
