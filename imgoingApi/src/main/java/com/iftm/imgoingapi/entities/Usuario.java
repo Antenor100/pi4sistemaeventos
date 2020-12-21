@@ -1,4 +1,4 @@
-package com.iftm.course.entities;
+package com.iftm.imgoingapi.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;

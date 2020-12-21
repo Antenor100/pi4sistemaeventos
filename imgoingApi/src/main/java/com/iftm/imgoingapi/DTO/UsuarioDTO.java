@@ -1,9 +1,9 @@
-package com.iftm.course.DTO;
+package com.iftm.imgoingapi.DTO;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import com.iftm.course.entities.Usuario;
+import com.iftm.imgoingapi.entities.Usuario;
 
 public class UsuarioDTO implements Serializable {
 

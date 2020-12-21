@@ -1,12 +1,12 @@
-package com.iftm.course.DTO;
+package com.iftm.imgoingapi.DTO;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import com.iftm.course.entities.Evento;
-import com.iftm.course.entities.Ingresso;
-import com.iftm.course.entities.Usuario;
-import com.iftm.course.entities.enums.FormaPagamento;
+import com.iftm.imgoingapi.entities.Evento;
+import com.iftm.imgoingapi.entities.Ingresso;
+import com.iftm.imgoingapi.entities.Usuario;
+import com.iftm.imgoingapi.entities.enums.FormaPagamento;
 
 public class IngressoDTO implements Serializable {
 

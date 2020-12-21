@@ -1,4 +1,4 @@
-package com.iftm.course.entities;
+package com.iftm.imgoingapi.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,7 +13,7 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.iftm.course.entities.enums.FormaPagamento;
+import com.iftm.imgoingapi.entities.enums.FormaPagamento;
 
 @Entity
 @Table(name = "ingresso")

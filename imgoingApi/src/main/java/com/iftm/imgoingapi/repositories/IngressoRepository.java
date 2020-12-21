@@ -1,8 +1,8 @@
-package com.iftm.course.repositories;
+package com.iftm.imgoingapi.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.iftm.course.entities.Ingresso;
+import com.iftm.imgoingapi.entities.Ingresso;
 
 public interface IngressoRepository extends JpaRepository<Ingresso, Long>{
 

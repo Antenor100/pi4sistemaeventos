@@ -1,22 +1,20 @@
-package com.iftm.course.config;
+package com.iftm.imgoingapi.config;
 
 import java.util.Date;
 
+import com.iftm.imgoingapi.entities.*;
+import com.iftm.imgoingapi.entities.enums.FormaPagamento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.iftm.course.entities.Categoria;
-import com.iftm.course.entities.Endereco;
-import com.iftm.course.entities.Evento;
-import com.iftm.course.entities.Usuario;
-import com.iftm.course.repositories.CategoriaRepository;
-import com.iftm.course.repositories.CertificadoRepository;
-import com.iftm.course.repositories.EnderecoRepository;
-import com.iftm.course.repositories.EventoRepository;
-import com.iftm.course.repositories.IngressoRepository;
-import com.iftm.course.repositories.UsuarioRepository;
+import com.iftm.imgoingapi.repositories.CategoriaRepository;
+import com.iftm.imgoingapi.repositories.CertificadoRepository;
+import com.iftm.imgoingapi.repositories.EnderecoRepository;
+import com.iftm.imgoingapi.repositories.EventoRepository;
+import com.iftm.imgoingapi.repositories.IngressoRepository;
+import com.iftm.imgoingapi.repositories.UsuarioRepository;
 
 @Configuration
 @Profile("test")
@@ -50,10 +48,16 @@ public class TestConfig implements CommandLineRunner {
 		Endereco end1 = new Endereco(null, "13600755", "Rua tanto faz teste", 55, "Santo teste", "Apartamento 12", "Uberlândia", "MG", null, null);
 
 		Evento eve1 = new Evento(null, "Gostronomia com zé", "url/img/gastroeven", new Date(), new Date(), "Evento de gastronomia com o chefe zé ", 60, cat1, usu1, end1);
-		
+
+		Ingresso ing1 = new Ingresso(null, 50d, new Date(), 25d, new Date(), FormaPagamento.PAGAMENTO_BOLETO, usu1, eve1);
+
+		Certificado cer1 = new Certificado(null, "www.linkdocertificado.com.br", new Date(), eve1, usu1);
+
 		usuarioRepository.save(usu1);	
 		categoriaRepository.save(cat1);		
 		enderecoRepository.save(end1);	
-		eventoRepository.save(eve1);	
+		eventoRepository.save(eve1);
+		ingressoRepository.save(ing1);
+		certificadoRepository.save(cer1);
 	}
 }

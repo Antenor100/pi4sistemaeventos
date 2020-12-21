@@ -1,4 +1,4 @@
-package com.iftm.course.entities.enums;
+package com.iftm.imgoingapi.entities.enums;
 
 public enum FormaPagamento {
 	

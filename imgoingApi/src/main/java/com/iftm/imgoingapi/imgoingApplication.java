@@ -1,4 +1,4 @@
-package com.iftm.course;
+package com.iftm.imgoingapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

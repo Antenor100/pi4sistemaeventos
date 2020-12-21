@@ -1,11 +1,11 @@
-package com.iftm.course.DTO;
+package com.iftm.imgoingapi.DTO;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import com.iftm.course.entities.Certificado;
-import com.iftm.course.entities.Evento;
-import com.iftm.course.entities.Usuario;
+import com.iftm.imgoingapi.entities.Certificado;
+import com.iftm.imgoingapi.entities.Evento;
+import com.iftm.imgoingapi.entities.Usuario;
 
 public class CertificadoDTO implements Serializable {
 	

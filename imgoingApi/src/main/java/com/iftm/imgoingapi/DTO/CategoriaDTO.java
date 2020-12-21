@@ -1,8 +1,8 @@
-package com.iftm.course.DTO;
+package com.iftm.imgoingapi.DTO;
 
 import java.io.Serializable;
 
-import com.iftm.course.entities.Categoria;
+import com.iftm.imgoingapi.entities.Categoria;
 
 public class CategoriaDTO implements Serializable {
 

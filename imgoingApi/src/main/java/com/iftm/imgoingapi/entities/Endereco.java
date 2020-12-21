@@ -1,13 +1,26 @@
-package com.iftm.course.DTO;
+package com.iftm.imgoingapi.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.iftm.course.entities.Endereco;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-public class EnderecoDTO implements Serializable {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name = "endereco")
+public class Endereco  implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String cep;
 	private String rua;
@@ -19,12 +32,16 @@ public class EnderecoDTO implements Serializable {
 	private String link;
 	private String plataforma;
 	
-	public EnderecoDTO() {
+	@JsonIgnore
+	@OneToMany(mappedBy = "endereco")
+	private List<Evento> eventos = new ArrayList<>();
+	
+	public Endereco() {
 		
 	}
-	
-	public EnderecoDTO(Long id, String cep, String rua, Integer numero, String bairro, String complemento,
-			String cidade, String estado, String link, String plataforma) {
+
+	public Endereco(Long id, String cep, String rua, Integer numero, String bairro, String complemento, String cidade,
+			String estado,String link, String plataforma) {
 		super();
 		this.id = id;
 		this.cep = cep;
@@ -36,19 +53,6 @@ public class EnderecoDTO implements Serializable {
 		this.estado = estado;
 		this.link = link;
 		this.plataforma = plataforma;
-	}
-
-	public EnderecoDTO(Endereco entity) {
-		this.id = entity.getId();
-		this.cep = entity.getCep();
-		this.rua = entity.getRua();
-		this.numero = entity.getNumero();
-		this.bairro = entity.getBairro();
-		this.complemento = entity.getComplemento();
-		this.cidade = entity.getCidade();
-		this.estado = entity.getEstado();
-		this.link = entity.getLink();
-		this.plataforma = entity.getPlataforma();
 	}
 
 	public Long getId() {
@@ -130,8 +134,33 @@ public class EnderecoDTO implements Serializable {
 	public void setPlataforma(String plataforma) {
 		this.plataforma = plataforma;
 	}
+	
+	public List<Evento> getEventos() {
+		return eventos;
+	}
 
-	public Endereco toEntity() {
-		return new Endereco(id, cep, rua, numero, bairro, complemento, cidade, estado, link, plataforma);
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Endereco other = (Endereco) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}	
 }
