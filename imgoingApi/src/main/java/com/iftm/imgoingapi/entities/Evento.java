@@ -51,7 +51,7 @@ public class Evento  implements Serializable{
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "evento")
-	private List<Ingresso> ingresso = new ArrayList<>();
+	private List<Ingresso> ingressos = new ArrayList<>();
 	
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
@@ -135,7 +135,6 @@ public class Evento  implements Serializable{
 	public void setQtdeMaximaIngresso(Integer qtdeMaximaIngresso) {
 		this.qtdeMaximaIngresso = qtdeMaximaIngresso;
 	}
-	
 
 	public Categoria getCategoria() {
 		return categoria;
@@ -149,8 +148,8 @@ public class Evento  implements Serializable{
 		return certificados;
 	}
 	
-	public List<Ingresso> getIngresso() {
-		return ingresso;
+	public List<Ingresso> getIngressos() {
+		return ingressos;
 	}
 	
 	public Usuario getUsuario() {
@@ -193,6 +192,4 @@ public class Evento  implements Serializable{
 			return false;
 		return true;
 	}
-
-	
 }

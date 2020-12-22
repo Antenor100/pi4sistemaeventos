@@ -38,10 +38,11 @@ public class Usuario implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Certificado> certificados = new ArrayList<>();
-	
-	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
-	private Ingresso ingresso;
-	
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "usuario")
+	private List<Evento> eventos = new ArrayList<>();
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Ingresso> ingressos = new ArrayList<>();
@@ -137,16 +138,12 @@ public class Usuario implements Serializable{
 	
 	public List<Certificado> getCertificados() {
 		return certificados;
-	}	
-	
-	public Ingresso getIngresso() {
-		return ingresso;
 	}
 
-	public void setIngresso(Ingresso ingresso) {
-		this.ingresso = ingresso;
+	public List<Evento> getEventos() {
+		return eventos;
 	}
-	
+
 	public List<Ingresso> getIngressos() {
 		return ingressos;
 	}

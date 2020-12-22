@@ -9,5 +9,4 @@ class imgoingApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

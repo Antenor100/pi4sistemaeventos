@@ -11,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "certificado")
 public class Certificado implements Serializable{
@@ -31,7 +30,6 @@ public class Certificado implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
-	
 	
 	public Certificado() {
 		
@@ -61,7 +59,6 @@ public class Certificado implements Serializable{
 	public void setLink(String link) {
 		this.link = link;
 	}
-	
 
 	public Date getDataEmissao() {
 		return dataEmissao;
@@ -95,7 +92,6 @@ public class Certificado implements Serializable{
 		return result;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -112,7 +108,4 @@ public class Certificado implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-
 }
