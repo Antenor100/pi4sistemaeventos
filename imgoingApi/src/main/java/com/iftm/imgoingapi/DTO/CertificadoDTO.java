@@ -33,7 +33,7 @@ public class CertificadoDTO implements Serializable {
 	public CertificadoDTO(Certificado entity) {
 		this.id = entity.getId();
 		this.link = entity.getLink();
-		this.dataEmissao = entity.getDataEmissao();
+		this.dataEmissao = entity.getDataemissao();
 		this.evento = entity.getEvento();
 		this.usuario = entity.getUsuario();
 	}

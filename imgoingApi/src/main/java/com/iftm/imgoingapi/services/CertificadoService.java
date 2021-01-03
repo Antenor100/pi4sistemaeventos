@@ -65,7 +65,7 @@ public class CertificadoService {
 
 	private void updateData(Certificado entity, CertificadoDTO dto) {
 		entity.setLink(dto.getLink());
-		entity.setDataEmissao(dto.getDataEmissao());
+		entity.setDataemissao(dto.getDataEmissao());
 		entity.setEvento(dto.getEvento());
 		entity.setUsuario(dto.getUsuario());
 	}

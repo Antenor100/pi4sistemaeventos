@@ -40,10 +40,10 @@ public class IngressoDTO implements Serializable {
 	public IngressoDTO(Ingresso entity) {
 		this.id = entity.getId();
 		this.valor = entity.getValor();
-		this.dataPagamento = entity.getDataPagamento();
-		this.valorPagamento = entity.getValorPagamento();
-		this.dataAquisicao = entity.getDataAquisicao();
-		this.formaPagamento = entity.getFormaPagamento();
+		this.dataPagamento = entity.getDatahorapagamento();
+		this.valorPagamento = entity.getValorpagamento();
+		this.dataAquisicao = entity.getDatahoraaquisicao();
+		this.formaPagamento = entity.getFormapagamento();
 		this.usuario = entity.getUsuario();
 		this.evento = entity.getEvento();
 	}

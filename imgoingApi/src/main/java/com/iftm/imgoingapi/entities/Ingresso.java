@@ -18,10 +18,10 @@ public class Ingresso implements Serializable{
 	private Long id;
 	
 	private Double valor;
-	private Date dataPagamento;
-	private Double valorPagamento;
-	private Date dataAquisicao;
-	private FormaPagamento formaPagamento;
+	private Date datahorapagamento;
+	private Double valorpagamento;
+	private Date datahoraaquisicao;
+	private FormaPagamento formapagamento;
 
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
@@ -40,10 +40,10 @@ public class Ingresso implements Serializable{
 		super();
 		this.id = id;
 		this.valor = valor;
-		this.dataPagamento = dataPagamento;
-		this.valorPagamento = valorPagamento;
-		this.dataAquisicao = dataAquisicao;
-		this.formaPagamento = formaPagamento;
+		this.datahorapagamento = dataPagamento;
+		this.valorpagamento = valorPagamento;
+		this.datahoraaquisicao = dataAquisicao;
+		this.formapagamento = formaPagamento;
 		this.usuario = usuario;
 		this.evento = evento;
 	}
@@ -64,36 +64,36 @@ public class Ingresso implements Serializable{
 		this.valor = valor;
 	}
 
-	public Date getDataPagamento() {
-		return dataPagamento;
+	public Date getDatahorapagamento() {
+		return datahorapagamento;
 	}
 
-	public void setDataPagamento(Date dataPagamento) {
-		this.dataPagamento = dataPagamento;
+	public void setDatahorapagamento(Date datahorapagamento) {
+		this.datahorapagamento = datahorapagamento;
 	}
 
-	public Double getValorPagamento() {
-		return valorPagamento;
+	public Double getValorpagamento() {
+		return valorpagamento;
 	}
 
-	public void setValorPagamento(Double valorPagamento) {
-		this.valorPagamento = valorPagamento;
+	public void setValorpagamento(Double valorpagamento) {
+		this.valorpagamento = valorpagamento;
 	}
 
-	public Date getDataAquisicao() {
-		return dataAquisicao;
+	public Date getDatahoraaquisicao() {
+		return datahoraaquisicao;
 	}
 
-	public void setDataAquisicao(Date dataAquisicao) {
-		this.dataAquisicao = dataAquisicao;
+	public void setDatahoraaquisicao(Date datahoraaquisicao) {
+		this.datahoraaquisicao = datahoraaquisicao;
 	}
 
-	public FormaPagamento getFormaPagamento() {
-		return formaPagamento;
+	public FormaPagamento getFormapagamento() {
+		return formapagamento;
 	}
 
-	public void setFormaPagamento(FormaPagamento formaPagamento) {
-		this.formaPagamento = formaPagamento;
+	public void setFormapagamento(FormaPagamento formapagamento) {
+		this.formapagamento = formapagamento;
 	}	
 	
 	public Usuario getUsuario() {

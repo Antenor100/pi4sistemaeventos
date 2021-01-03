@@ -2,11 +2,9 @@ package com.iftm.imgoingapi.entities.enums;
 
 public enum FormaPagamento {
 	
-	
-	PAGAMENTO_CARTAO(1),
-	PAGAMENTO_BOLETO(2);
+	PAGAMENTO_CARTAO(0),
+	PAGAMENTO_BOLETO(1);
 
-	
 	private int code;
 	
 	private FormaPagamento(int code) {

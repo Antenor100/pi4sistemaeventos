@@ -65,12 +65,12 @@ public class UsuarioService {
 
 	private void updateData(Usuario entity, UsuarioDTO dto) {
 	 entity.setNome(dto.getNome());
-	 entity.setRazaoSocial(dto.getRazaoSocial());
+	 entity.setRazaosocial(dto.getRazaoSocial());
 	 
 		entity.setEmail(dto.getEmail());
 		entity.setSenha(dto.getSenha());
 		entity.setTelefone(dto.getSenha());
-		entity.setDataNascimento(dto.getDataNascimento());
+		entity.setDatanascimento(dto.getDataNascimento());
 		entity.setCpf(dto.getCpf());
 		entity.setCnpj(dto.getCnpj());
 

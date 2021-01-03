@@ -66,10 +66,10 @@ public class EventoService {
 	private void updateData(Evento entity, EventoDTO dto) {
 		entity.setTitulo(dto.getTitulo());
 		entity.setImagem(dto.getImagem());
-		entity.setDataHoraInicio(dto.getDataHoraInicio());
-		entity.setDataHoraTermino(dto.getDataHoraTermino());
+		entity.setDatahorainicio(dto.getDataHoraInicio());
+		entity.setDatahoratermino(dto.getDataHoraTermino());
 		entity.setDescricao(dto.getDescricao());
-		entity.setQtdeMaximaIngresso(dto.getQtdeMaximaIngresso());
+		entity.setQtdmaximaingresso(dto.getQtdeMaximaIngresso());
 		entity.setCategoria(dto.getCategoria());
 		entity.setUsuario(dto.getUsuario());
 		entity.setEndereco(dto.getEndereco());	

@@ -46,10 +46,10 @@ public class EventoDTO implements Serializable {
 		this.id = entity.getId();
 		this.titulo = entity.getTitulo();
 		this.imagem = entity.getImagem();
-		this.dataHoraInicio = entity.getDataHoraInicio();
-		this.dataHoraTermino = entity.getDataHoraTermino();
+		this.dataHoraInicio = entity.getDatahorainicio();
+		this.dataHoraTermino = entity.getDatahoratermino();
 		this.descricao = entity.getDescricao();
-		this.qtdeMaximaIngresso = entity.getQtdeMaximaIngresso();
+		this.qtdeMaximaIngresso = entity.getQtdmaximaingresso();
 		this.categoria = entity.getCategoria();
 		this.usuario = entity.getUsuario();
 		this.endereco = entity.getEndereco();

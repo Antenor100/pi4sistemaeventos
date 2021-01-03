@@ -5,13 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,11 +25,11 @@ public class Usuario implements Serializable{
 	private Long id;
 	
 	private String nome;
-	private String razaoSocial;
+	private String razaosocial;
 	private String email;
 	private String senha;
 	private String telefone;
-	private Date dataNascimento;
+	private Date datanascimento;
 	private String cpf;
 	private String cnpj;
 		
@@ -56,10 +54,10 @@ public class Usuario implements Serializable{
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.razaoSocial = razaoSocial;
+		this.razaosocial = razaoSocial;
 		this.email = email;
 		this.senha = senha;
-		this.dataNascimento = dataNascimento;
+		this.datanascimento = dataNascimento;
 		this.cpf = cpf;
 		this.cnpj = cnpj;
 	}
@@ -80,12 +78,12 @@ public class Usuario implements Serializable{
 		this.nome = nome;
 	}
 
-	public String getRazaoSocial() {
-		return razaoSocial;
+	public String getRazaosocial() {
+		return razaosocial;
 	}
 
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
+	public void setRazaosocial(String razaosocial) {
+		this.razaosocial = razaosocial;
 	}
 
 	public String getEmail() {
@@ -112,12 +110,12 @@ public class Usuario implements Serializable{
 		this.telefone = telefone;
 	}
 
-	public Date getDataNascimento() {
-		return dataNascimento;
+	public Date getDatanascimento() {
+		return datanascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDatanascimento(Date datanascimento) {
+		this.datanascimento = datanascimento;
 	}
 
 	public String getCpf() {

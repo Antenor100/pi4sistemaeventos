@@ -21,7 +21,7 @@ public class Certificado implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String link;
-	private Date dataEmissao;
+	private Date dataemissao;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_evento")
@@ -39,7 +39,7 @@ public class Certificado implements Serializable{
 		super();
 		this.id = id;
 		this.link = link;
-		this.dataEmissao = dataEmissao;
+		this.dataemissao = dataEmissao;
 		this.evento = evento;
 		this.usuario = usuario;
 	}
@@ -60,12 +60,12 @@ public class Certificado implements Serializable{
 		this.link = link;
 	}
 
-	public Date getDataEmissao() {
-		return dataEmissao;
+	public Date getDataemissao() {
+		return dataemissao;
 	}
 
-	public void setDataEmissao(Date dataEmissao) {
-		this.dataEmissao = dataEmissao;
+	public void setDataemissao(Date dataemissao) {
+		this.dataemissao = dataemissao;
 	}
 
 	public Evento getEvento() {

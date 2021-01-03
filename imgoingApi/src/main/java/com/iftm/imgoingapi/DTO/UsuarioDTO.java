@@ -37,10 +37,10 @@ public class UsuarioDTO implements Serializable {
 	public UsuarioDTO(Usuario entity) {
 		this.id = entity.getId();
 		this.nome = entity.getNome();
-		this.razaoSocial = entity.getRazaoSocial();
+		this.razaoSocial = entity.getRazaosocial();
 		this.email = entity.getEmail();
 		this.senha = entity.getSenha();
-		this.dataNascimento = entity.getDataNascimento();
+		this.dataNascimento = entity.getDatanascimento();
 		this.cpf = entity.getCpf();
 		this.cnpj = entity.getCnpj();
 	}

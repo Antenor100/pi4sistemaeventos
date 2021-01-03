@@ -65,10 +65,10 @@ public class IngressoService {
 
 	private void updateData(Ingresso entity, IngressoDTO dto) {
 		entity.setValor(dto.getValor());
-		entity.setDataPagamento(dto.getDataPagamento());
-		entity.setValorPagamento(dto.getValorPagamento());
-		entity.setDataAquisicao(dto.getDataAquisicao());
-		entity.setFormaPagamento(dto.getFormaPagamento());
+		entity.setDatahorapagamento(dto.getDataPagamento());
+		entity.setValorpagamento(dto.getValorPagamento());
+		entity.setDatahoraaquisicao(dto.getDataAquisicao());
+		entity.setFormapagamento(dto.getFormaPagamento());
 		entity.setUsuario(dto.getUsuario());
 		entity.setEvento(dto.getEvento());
 	}

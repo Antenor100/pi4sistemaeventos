@@ -33,13 +33,13 @@ public class Evento  implements Serializable{
 	private String imagem;
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd'T'HH:mm:ss'Z'", timezone = "GMT")
-	private Date dataHoraInicio;
+	private Date datahorainicio;
 	
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd'T'HH:mm:ss'Z'", timezone = "GMT")
-	private Date dataHoraTermino;
+	private Date datahoratermino;
 	
 	private String descricao;
-	private Integer qtdeMaximaIngresso;
+	private Integer qtdmaximaingresso;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_categoria")
@@ -71,10 +71,10 @@ public class Evento  implements Serializable{
 		this.id = id;
 		this.titulo = titulo;
 		this.imagem = imagem;
-		this.dataHoraInicio = dataHoraInicio;
-		this.dataHoraTermino = dataHoraTermino;
+		this.datahorainicio = dataHoraInicio;
+		this.datahoratermino = dataHoraTermino;
 		this.descricao = descricao;
-		this.qtdeMaximaIngresso = qtdeMaximaIngresso;
+		this.qtdmaximaingresso = qtdeMaximaIngresso;
 		this.categoria = categoria;
 		this.usuario = usuario;
 		this.endereco = endereco;
@@ -104,20 +104,20 @@ public class Evento  implements Serializable{
 		this.imagem = imagem;
 	}
 
-	public Date getDataHoraInicio() {
-		return dataHoraInicio;
+	public Date getDatahorainicio() {
+		return datahorainicio;
 	}
 
-	public void setDataHoraInicio(Date dataHoraInicio) {
-		this.dataHoraInicio = dataHoraInicio;
+	public void setDatahorainicio(Date datahorainicio) {
+		this.datahorainicio = datahorainicio;
 	}
 
-	public Date getDataHoraTermino() {
-		return dataHoraTermino;
+	public Date getDatahoratermino() {
+		return datahoratermino;
 	}
 
-	public void setDataHoraTermino(Date dataHoraTermino) {
-		this.dataHoraTermino = dataHoraTermino;
+	public void setDatahoratermino(Date datahoratermino) {
+		this.datahoratermino = datahoratermino;
 	}
 
 	public String getDescricao() {
@@ -128,12 +128,12 @@ public class Evento  implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public Integer getQtdeMaximaIngresso() {
-		return qtdeMaximaIngresso;
+	public Integer getQtdmaximaingresso() {
+		return qtdmaximaingresso;
 	}
 
-	public void setQtdeMaximaIngresso(Integer qtdeMaximaIngresso) {
-		this.qtdeMaximaIngresso = qtdeMaximaIngresso;
+	public void setQtdmaximaingresso(Integer qtdmaximaingresso) {
+		this.qtdmaximaingresso = qtdmaximaingresso;
 	}
 
 	public Categoria getCategoria() {
