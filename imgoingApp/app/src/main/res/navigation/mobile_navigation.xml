@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.teste.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/navigation_pesquisa"
+        android:name="com.example.teste.ui.pesquisa.PesquisaFragment"
+        android:label="Pesquisa"
+        tools:layout="@layout/fragment_pesquisa" />
+    <fragment
+        android:id="@+id/navigation_ingresso"
+        android:name="com.example.teste.ui.ingresso.IngressoFragment"
+        android:label="Ingresso"
+        tools:layout="@layout/fragment_ingresso" />
+    <fragment
+        android:id="@+id/navigation_favoritos"
+        android:name="com.example.teste.ui.favoritos.FavoritosFragment"
+        android:label="Favoritos"
+        tools:layout="@layout/fragment_favoritos" />
+    <fragment
+        android:id="@+id/navigation_perfil"
+        android:name="com.example.teste.ui.perfil.PerfilFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_navigation_perfil_to_cadastroDeUsuarioActivity"
+            app:destination="@id/cadastroDeUsuarioActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/cadastroDeUsuarioActivity"
+        android:name="com.example.teste.activities.CadastroDeUsuarioActivity"
+        android:label="activity_cadastro_de_usuario"
+        tools:layout="@layout/activity_cadastro_de_usuario" />
+</navigation>
