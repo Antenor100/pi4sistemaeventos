@@ -49,7 +49,7 @@ public class Usuario implements Serializable{
 		
 	}
 
-	public Usuario(Long id, String nome, String razaoSocial, String email, String senha, Date dataNascimento,
+	public Usuario(Long id, String nome, String razaoSocial, String email, String senha, String telefone, Date dataNascimento,
 			String cpf, String cnpj) {
 		super();
 		this.id = id;
@@ -57,6 +57,7 @@ public class Usuario implements Serializable{
 		this.razaosocial = razaoSocial;
 		this.email = email;
 		this.senha = senha;
+		this.telefone = telefone;
 		this.datanascimento = dataNascimento;
 		this.cpf = cpf;
 		this.cnpj = cnpj;

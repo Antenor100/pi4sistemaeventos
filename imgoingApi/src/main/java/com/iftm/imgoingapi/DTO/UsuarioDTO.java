@@ -22,13 +22,14 @@ public class UsuarioDTO implements Serializable {
 		
 	}
 	
-	public UsuarioDTO(Long id, String nome, String razaoSocial, String email, String senha, Date dataNascimento,
+	public UsuarioDTO(Long id, String nome, String razaoSocial, String email, String senha, String telefone, Date dataNascimento,
 			String cpf, String cnpj) {
 		this.id = id;
 		this.nome = nome;
 		this.razaoSocial = razaoSocial;
 		this.email = email;
 		this.senha = senha;
+		this.telefone = telefone;
 		this.dataNascimento = dataNascimento;
 		this.cpf = cpf;
 		this.cnpj = cnpj;
@@ -40,6 +41,7 @@ public class UsuarioDTO implements Serializable {
 		this.razaoSocial = entity.getRazaosocial();
 		this.email = entity.getEmail();
 		this.senha = entity.getSenha();
+		this.telefone = entity.getTelefone();
 		this.dataNascimento = entity.getDatanascimento();
 		this.cpf = entity.getCpf();
 		this.cnpj = entity.getCnpj();
@@ -118,6 +120,6 @@ public class UsuarioDTO implements Serializable {
 	}
 
 	public Usuario toEntity() {
-		return new Usuario(id, nome, razaoSocial, email, senha, dataNascimento, cpf, cnpj);
+		return new Usuario(id, nome, razaoSocial, email, senha, telefone, dataNascimento, cpf, cnpj);
 	}		
 }
