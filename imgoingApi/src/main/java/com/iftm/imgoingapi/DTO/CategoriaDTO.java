@@ -2,6 +2,8 @@ package com.iftm.imgoingapi.DTO;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.iftm.imgoingapi.entities.Categoria;
 
 public class CategoriaDTO implements Serializable {
@@ -10,6 +12,7 @@ public class CategoriaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@NotEmpty(message = "Não pode ser vazio!")
 	private String nome;
 	private String descricao;
 	

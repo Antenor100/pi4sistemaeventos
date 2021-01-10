@@ -3,6 +3,9 @@ package com.iftm.imgoingapi.DTO;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+
 import com.iftm.imgoingapi.entities.Evento;
 import com.iftm.imgoingapi.entities.Ingresso;
 import com.iftm.imgoingapi.entities.Usuario;
@@ -12,6 +15,9 @@ public class IngressoDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Long id;
+
+	@NotEmpty(message = "Não pode ser vazio!")
+	@Positive(message = "Valor não pode ser negativo!")
 	private Double valor;
 	private Date dataPagamento;
 	private Double valorPagamento;

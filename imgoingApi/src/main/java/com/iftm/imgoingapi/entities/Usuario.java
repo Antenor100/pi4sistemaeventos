@@ -12,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "usuario")
 public class Usuario implements Serializable{
@@ -33,15 +31,12 @@ public class Usuario implements Serializable{
 	private String cpf;
 	private String cnpj;
 		
-	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Certificado> certificados = new ArrayList<>();
 
-	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Evento> eventos = new ArrayList<>();
 
-	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Ingresso> ingressos = new ArrayList<>();
 	

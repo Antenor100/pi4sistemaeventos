@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "endereco")
@@ -32,7 +31,6 @@ public class Endereco  implements Serializable{
 	private String link;
 	private String plataforma;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "endereco")
 	private List<Evento> eventos = new ArrayList<>();
 	

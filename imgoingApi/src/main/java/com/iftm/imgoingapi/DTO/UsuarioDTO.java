@@ -3,27 +3,40 @@ package com.iftm.imgoingapi.DTO;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
 import com.iftm.imgoingapi.entities.Usuario;
 
 public class UsuarioDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Long id;
+
+	@NotEmpty(message = "Não pode ser vazio!")
 	private String nome;
 	private String razaoSocial;
+
+	@NotEmpty(message = "Não pode ser vazio!")
+	@Email(message = "Formato incorreto!")
 	private String email;
+
+	@NotEmpty(message = "Não pode ser vazio!")
 	private String senha;
+
 	private String telefone;
+
+	@NotEmpty(message = "Não pode ser vazio!")
 	private Date dataNascimento;
 	private String cpf;
 	private String cnpj;
 
 	public UsuarioDTO() {
-		
+
 	}
-	
-	public UsuarioDTO(Long id, String nome, String razaoSocial, String email, String senha, String telefone, Date dataNascimento,
-			String cpf, String cnpj) {
+
+	public UsuarioDTO(Long id, String nome, String razaoSocial, String email, String senha, String telefone,
+			Date dataNascimento, String cpf, String cnpj) {
 		this.id = id;
 		this.nome = nome;
 		this.razaoSocial = razaoSocial;
@@ -34,7 +47,7 @@ public class UsuarioDTO implements Serializable {
 		this.cpf = cpf;
 		this.cnpj = cnpj;
 	}
-	
+
 	public UsuarioDTO(Usuario entity) {
 		this.id = entity.getId();
 		this.nome = entity.getNome();
@@ -121,5 +134,5 @@ public class UsuarioDTO implements Serializable {
 
 	public Usuario toEntity() {
 		return new Usuario(id, nome, razaoSocial, email, senha, telefone, dataNascimento, cpf, cnpj);
-	}		
+	}
 }

@@ -3,6 +3,8 @@ package com.iftm.imgoingapi.resources;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,7 +40,7 @@ public class EventoResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<EventoDTO> insert(@RequestBody EventoDTO dto){
+	public ResponseEntity<EventoDTO> insert(@Valid @RequestBody EventoDTO dto){
 		EventoDTO newDto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(dto.getId()).toUri();

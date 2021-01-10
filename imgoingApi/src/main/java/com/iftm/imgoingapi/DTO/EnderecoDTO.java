@@ -2,6 +2,8 @@ package com.iftm.imgoingapi.DTO;
 
 import java.io.Serializable;
 
+import org.hibernate.validator.constraints.Length;
+
 import com.iftm.imgoingapi.entities.Endereco;
 
 public class EnderecoDTO implements Serializable {
@@ -9,6 +11,7 @@ public class EnderecoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	@Length(min = 8, max = 8, message = "O campo deve ter 8 digitos!")
 	private String cep;
 	private String rua;
 	private Integer numero;

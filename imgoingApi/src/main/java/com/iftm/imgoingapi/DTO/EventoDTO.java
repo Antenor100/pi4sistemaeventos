@@ -3,6 +3,10 @@ package com.iftm.imgoingapi.DTO;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.iftm.imgoingapi.entities.Categoria;
 import com.iftm.imgoingapi.entities.Endereco;
 import com.iftm.imgoingapi.entities.Evento;
@@ -13,14 +17,22 @@ public class EventoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	@NotEmpty(message = "Não pode ser vazio!")
+	@Length(min = 5, max = 100, message = "Min. 5 Max 100 caracteres")
 	private String titulo;
 	private String imagem;
+	@NotEmpty(message = "Não pode ser vazio!")
 	private Date dataHoraInicio;
+	@NotEmpty(message = "Não pode ser vazio!")
 	private Date dataHoraTermino;
+	@NotEmpty(message = "Não pode ser vazio!")
 	private String descricao;
 	private Integer qtdeMaximaIngresso;
+	@NotEmpty(message = "Não pode ser vazio!")
 	private Categoria categoria;
+	@NotEmpty(message = "Não pode ser vazio!")
 	private Usuario usuario;
+	@NotEmpty(message = "Não pode ser vazio!")
 	private Endereco endereco;
 	
 	public EventoDTO() {
