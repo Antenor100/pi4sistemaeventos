@@ -1,14 +1,14 @@
 package com.iftm.imgoingapi.services;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,9 +24,9 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
 	
-	public List<UsuarioDTO> findAll(){
-		List<Usuario> list = repository.findAll();
-		return list.stream().map(e -> new UsuarioDTO(e)).collect(Collectors.toList());
+	public Page<UsuarioDTO> findAllPaged(Pageable pageable) {
+		Page<Usuario> list =  repository.findAll(pageable);
+		return list.map(e -> new UsuarioDTO(e));
 	}
 	
 	public UsuarioDTO findbyId(Long id) {

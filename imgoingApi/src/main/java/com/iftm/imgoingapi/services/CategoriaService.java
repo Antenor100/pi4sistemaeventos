@@ -1,14 +1,14 @@
 package com.iftm.imgoingapi.services;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,10 +24,11 @@ public class CategoriaService {
 	@Autowired
 	private CategoriaRepository repository;
 	
-	public List<CategoriaDTO> findAll(){
-		List<Categoria> list = repository.findAll();
-		return list.stream().map(e -> new CategoriaDTO(e)).collect(Collectors.toList());
+	public Page<CategoriaDTO> findAllPaged(Pageable pageable) {
+		Page<Categoria> list =  repository.findAll(pageable);
+		return list.map(e -> new CategoriaDTO(e));
 	}
+	
 	
 	public CategoriaDTO findbyId(Long id) {
 		Optional<Categoria> obj = repository.findById(id);
