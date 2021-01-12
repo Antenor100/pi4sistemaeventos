@@ -2,13 +2,18 @@ package com.iftm.imgoingapi.config;
 
 import java.util.Date;
 
-import com.iftm.imgoingapi.entities.*;
-import com.iftm.imgoingapi.entities.enums.FormaPagamento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.iftm.imgoingapi.entities.Categoria;
+import com.iftm.imgoingapi.entities.Certificado;
+import com.iftm.imgoingapi.entities.Endereco;
+import com.iftm.imgoingapi.entities.Evento;
+import com.iftm.imgoingapi.entities.Ingresso;
+import com.iftm.imgoingapi.entities.Usuario;
+import com.iftm.imgoingapi.entities.enums.FormaPagamento;
 import com.iftm.imgoingapi.repositories.CategoriaRepository;
 import com.iftm.imgoingapi.repositories.CertificadoRepository;
 import com.iftm.imgoingapi.repositories.EnderecoRepository;

@@ -60,6 +60,7 @@ public class UsuarioResource {
 		return ResponseEntity.created(uri).body(newDto);
 		}
 	
+	
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id){
 		service.deleted(id);

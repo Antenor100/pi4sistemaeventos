@@ -69,8 +69,8 @@ public class UsuarioService {
 	 
 		entity.setEmail(dto.getEmail());
 		entity.setSenha(dto.getSenha());
-		entity.setTelefone(dto.getSenha());
-		entity.setDatanascimento(dto.getDataNascimento());
+		entity.setTelefone(dto.getTelefone());
+		entity.setDataNascimento(dto.getDataNascimento());
 		entity.setCpf(dto.getCpf());
 		entity.setCnpj(dto.getCnpj());
 

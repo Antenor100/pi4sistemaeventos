@@ -24,7 +24,7 @@ public class Ingresso implements Serializable{
 	private FormaPagamento formapagamento;
 
 	@ManyToOne
-	@JoinColumn(name = "id_usuario")
+	@JoinColumn(name = "id_usuario",nullable=false)
 	private Usuario usuario;
 	
 	@ManyToOne

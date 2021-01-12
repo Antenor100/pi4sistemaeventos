@@ -5,7 +5,9 @@ import java.util.Date;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.iftm.imgoingapi.entities.Usuario;
 
 public class UsuarioDTO implements Serializable {
@@ -26,7 +28,8 @@ public class UsuarioDTO implements Serializable {
 
 	private String telefone;
 
-	@NotEmpty(message = "Não pode ser vazio!")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT")
+	@NotNull(message = "Não pode ser vazio!")
 	private Date dataNascimento;
 	private String cpf;
 	private String cnpj;
@@ -55,7 +58,7 @@ public class UsuarioDTO implements Serializable {
 		this.email = entity.getEmail();
 		this.senha = entity.getSenha();
 		this.telefone = entity.getTelefone();
-		this.dataNascimento = entity.getDatanascimento();
+		this.dataNascimento = entity.getDataNascimento();
 		this.cpf = entity.getCpf();
 		this.cnpj = entity.getCnpj();
 	}

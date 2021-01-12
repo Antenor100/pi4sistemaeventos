@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,14 +38,14 @@ public class Usuario implements Serializable{
 	@OneToMany(mappedBy = "usuario")
 	private List<Evento> eventos = new ArrayList<>();
 
-	@OneToMany(mappedBy = "usuario")
-	private List<Ingresso> ingressos = new ArrayList<>();
+	@OneToMany(mappedBy = "usuario",cascade={CascadeType.ALL})
+	private List<Ingresso> ingressos;
 	
 	public Usuario() {
 		
 	}
 
-	public Usuario(Long id, String nome, String razaoSocial, String email, String senha, String telefone, Date dataNascimento,
+	public Usuario(Long id, String nome, String razaoSocial, String email, String senha, String telefone, Date datanascimento,
 			String cpf, String cnpj) {
 		super();
 		this.id = id;
@@ -53,7 +54,7 @@ public class Usuario implements Serializable{
 		this.email = email;
 		this.senha = senha;
 		this.telefone = telefone;
-		this.datanascimento = dataNascimento;
+		this.datanascimento = datanascimento;
 		this.cpf = cpf;
 		this.cnpj = cnpj;
 	}
@@ -106,11 +107,11 @@ public class Usuario implements Serializable{
 		this.telefone = telefone;
 	}
 
-	public Date getDatanascimento() {
+	public Date getDataNascimento() {
 		return datanascimento;
 	}
 
-	public void setDatanascimento(Date datanascimento) {
+	public void setDataNascimento(Date datanascimento) {
 		this.datanascimento = datanascimento;
 	}
 
