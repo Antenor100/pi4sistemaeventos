@@ -7,17 +7,6 @@
     android:background="@drawable/fundo1"
     tools:context=".activities.FragmentPerfilActivity">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="130dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/pessoas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="358dp"
@@ -26,15 +15,28 @@
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintHorizontal_bias="0.604"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377">
+        app:layout_constraintVertical_bias="0.433">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="130dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="170dp"
+        android:src="@drawable/pessoas"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.868" />
+
     <EditText
-        android:id="@+id/et_cadastro_evento_titulo"
+        android:id="@+id/et_cadastro_usuario_email"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
@@ -63,17 +65,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/et_cadastro_usuario_email" />
 
     <Button
-        android:id="@+id/id_cadastrar_usuario_2"
+        android:id="@+id/id_logar"
         android:layout_width="213dp"
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_corners"
         android:backgroundTint="#00BCD4"
+        android:background="@drawable/rounded_corners"
         android:text="Entrar"
-        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

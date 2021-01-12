@@ -8,8 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="30dp">
+        android:layout_height="match_parent">
 
 
         <ImageView
@@ -37,22 +36,21 @@
             app:srcCompat="@drawable/logo" />
 
         <Button
-            android:id="@+id/id_cadastrar_usuario_2"
-            android:layout_width="201dp"
-            android:layout_height="46dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_corners"
-            android:backgroundTint="#00BCD4"
-            android:onClick="cadastrar"
-            android:text="cadastrar"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_cadastro_usuario_cpfcnpj" />
+        android:id="@+id/id_logar"
+        android:layout_width="201dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#00BCD4"
+        android:onClick="cadastrar"
+        android:text="cadastrar"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_cadastro_usuario_cpfcnpj" />
 
     <EditText
-        android:id="@+id/et_cadastro_evento_titulo"
+        android:id="@+id/et_cadastro_usuario_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -137,7 +135,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_titulo" />
+        app:layout_constraintTop_toBottomOf="@+id/et_cadastro_usuario_email" />
 
     <EditText
         android:id="@+id/et_cadastro_usuario_phone"
@@ -166,6 +164,4 @@
         app:layout_constraintTop_toBottomOf="@+id/et_cadastro_usuario_password2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </ScrollView>
