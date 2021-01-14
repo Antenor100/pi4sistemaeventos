@@ -1,9 +1,11 @@
 package com.example.teste.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.example.teste.dto.DtoUser
 import com.example.teste.services.RetrofitService
 import com.example.teste.R
@@ -53,15 +55,17 @@ class CadastroDeUsuarioActivity : AppCompatActivity() {
         else if (cpfcnpj.length == 14){
             dtoUser.cnpj = cpfcnpj
         }
-
+        var intent2 = Intent(this, MainActivity::class.java)
         val serviceRetrofit = RetrofitService()
         serviceRetrofit.api?.cadastrarUsuario(dtoUser)?.enqueue(object : Callback<DtoUser> {
             override fun onResponse(call: Call<DtoUser>, response: Response<DtoUser>) {
-                Log.d("Responsta","Usuario cadastrado com ID: " + response.body()?.id.toString())
+                Toast.makeText(this@CadastroDeUsuarioActivity, "Cadastro Efetuado!", Toast.LENGTH_LONG).show()
+                startActivity(intent2)
             }
 
             override fun onFailure(call: Call<DtoUser>, t: Throwable) {
                 Log.e("Erro", "************** erro **********\n" + t?.message.toString())
+                Toast.makeText(this@CadastroDeUsuarioActivity, "Cadastro Falhou!", Toast.LENGTH_LONG).show()
             }
         })
     }

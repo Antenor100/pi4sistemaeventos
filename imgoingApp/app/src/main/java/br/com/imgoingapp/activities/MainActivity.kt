@@ -3,8 +3,10 @@ package com.example.teste.activities
 import android.content.Intent
 import android.graphics.drawable.Animatable
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import android.widget.ViewAnimator
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +15,15 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.teste.R
+import com.example.teste.dto.DtoUser
+import com.example.teste.services.RetrofitService
+import com.example.teste.ui.home.HomeFragment
+import com.example.teste.ui.home.HomeViewModel
+import kotlinx.android.synthetic.main.activity_cadastro_de_usuario.*
+import kotlinx.android.synthetic.main.fragment_perfil.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
@@ -54,6 +65,47 @@ class MainActivity : AppCompatActivity() {
         if (rocketAnimation is Animatable) {
             rocketAnimation.start()
         }
+    }
+
+    fun entrar(view: View) {
+        val serviceRetrofit = RetrofitService()
+        serviceRetrofit.api?.obterUsuarios()?.enqueue(object : Callback<List<DtoUser>> {
+            override fun onResponse(
+                call: Call<List<DtoUser>?>?,
+                response: Response<List<DtoUser>?>?
+            ) {
+
+                var email = et_cadastro_evento_titulo.text.toString()
+                var senha = et_cadastro_usuario_passwordLogin.text.toString()
+                var resposta = 0
+                val lista = response?.body();
+                if (lista != null) {
+                    for (user in lista) {
+                        if(user.email == email && user.senha == senha) {
+                         resposta = 1
+                        }
+                    }
+                    if(resposta == 1){
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Login Efetuado!",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    else{
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Email ou Senha está Incorreto!",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<DtoUser>?>?, t: Throwable?) {
+                Log.e("Erro", "************** erro **********\n" + t?.message.toString())
+            }
+        })
     }
     }
 
