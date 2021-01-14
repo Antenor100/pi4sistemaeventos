@@ -11,6 +11,10 @@ import kotlinx.android.synthetic.main.activity_cadastro_de_usuario.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.time.LocalDate
+import java.time.LocalDate.*
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 class CadastroDeUsuarioActivity : AppCompatActivity() {
@@ -40,7 +44,9 @@ class CadastroDeUsuarioActivity : AppCompatActivity() {
         dtoUser.email = email
         dtoUser.senha = senha
         dtoUser.telefone = telefone
-        dtoUser.dataNascimento = dataNascimento
+        var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.ENGLISH);
+        val date = parse (dataNascimento, formatter)
+        dtoUser.dataNascimento = date.toString()
         if(cpfcnpj.length == 11){
             dtoUser.cpf = cpfcnpj
         }
