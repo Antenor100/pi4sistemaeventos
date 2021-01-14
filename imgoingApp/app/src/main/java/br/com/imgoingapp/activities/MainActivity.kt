@@ -54,11 +54,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun radioOnline(view: View){
-        et_cadastro_evento_cep.visibility = View.INVISIBLE
+        et_cadastro_evento_cep.visibility = View.GONE
+        et_cadastro_evento_rua.visibility = View.GONE
+        et_cadastro_evento_complemento.visibility = View.GONE
+        et_cadastro_evento_bairro.visibility = View.GONE
+        et_cadastro_evento_cidade.visibility = View.GONE
+        et_cadastro_evento_estado.visibility = View.GONE
+        et_cadastro_evento_numero.visibility = View.GONE
+        et_cadastro_evento_link.visibility = View.VISIBLE
+        et_cadastro_evento_plataforma.visibility = View.VISIBLE
+
     }
 
     fun radioPresencial(view: View){
-        et_cadastro_evento_cep.visibility = View.INVISIBLE
+        et_cadastro_evento_link.visibility = View.GONE
+        et_cadastro_evento_plataforma.visibility = View.GONE
+        et_cadastro_evento_cep.visibility = View.VISIBLE
+        et_cadastro_evento_rua.visibility = View.VISIBLE
+        et_cadastro_evento_complemento.visibility = View.VISIBLE
+        et_cadastro_evento_bairro.visibility = View.VISIBLE
+        et_cadastro_evento_cidade.visibility = View.VISIBLE
+        et_cadastro_evento_estado.visibility = View.VISIBLE
+        et_cadastro_evento_numero.visibility = View.VISIBLE
+
     }
 
 

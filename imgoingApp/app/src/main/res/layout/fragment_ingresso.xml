@@ -118,6 +118,7 @@
                 android:id="@+id/botao_online"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="#2196F3"
                 android:onClick="radioOnline"
                 android:text="Online" />
 
@@ -125,6 +126,7 @@
                 android:id="@+id/radioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:buttonTint="#2196F3"
                 android:onClick="radioPresencial"
                 android:text="Presencial" />
         </RadioGroup>
@@ -220,6 +222,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_cidade" />
 
+        <EditText
+            android:id="@+id/et_cadastro_evento_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:visibility="gone"
+            android:hint="Link"
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_estado" />
+
+        <EditText
+            android:id="@+id/et_cadastro_evento_plataforma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="Plataforma"
+            android:visibility="gone"
+            android:inputType="text"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_link" />
+
         <Button
             android:id="@+id/id_cadastrar_usuario_2"
             android:layout_width="201dp"
@@ -232,7 +262,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_estado" />
+            app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_plataforma" />
 
         <Space
             android:layout_width="1dp"
