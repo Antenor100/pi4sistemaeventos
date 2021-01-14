@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_ingresso"
         android:icon="@drawable/icon3"
-        android:title="Ingresso" />
+        android:title="Evento" />
 
     <item
         android:id="@+id/navigation_favoritos"

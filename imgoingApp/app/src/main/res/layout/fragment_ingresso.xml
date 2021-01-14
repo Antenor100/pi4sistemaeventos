@@ -103,22 +103,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_data_final" />
 
-        <ToggleButton
-            android:id="@+id/presencial_online"
-            android:layout_width="100dp"
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_corners"
-            android:backgroundTint="#8F8F8F"
-            android:text="ToggleButton"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textOff="PRESENCIAL"
-            android:textOn="ONLINE"
-            android:textStyle="bold"
+            android:checkedButton="@id/radioButton"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_hora_final" />
+            app:layout_constraintTop_toBottomOf="@+id/et_cadastro_evento_hora_final">
+
+            <RadioButton
+                android:id="@+id/botao_online"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="radioOnline"
+                android:text="Online" />
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="radioPresencial"
+                android:text="Presencial" />
+        </RadioGroup>
 
         <EditText
             android:id="@+id/et_cadastro_evento_cep"
@@ -131,7 +140,7 @@
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/presencial_online" />
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
         <EditText
             android:id="@+id/et_cadastro_evento_rua"

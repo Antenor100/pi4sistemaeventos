@@ -20,7 +20,9 @@ import com.example.teste.services.RetrofitService
 import com.example.teste.ui.home.HomeFragment
 import com.example.teste.ui.home.HomeViewModel
 import kotlinx.android.synthetic.main.activity_cadastro_de_usuario.*
+import kotlinx.android.synthetic.main.fragment_ingresso.*
 import kotlinx.android.synthetic.main.fragment_perfil.*
+import kotlinx.android.synthetic.main.fragment_perfil.et_cadastro_evento_titulo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -48,6 +50,15 @@ class MainActivity : AppCompatActivity() {
         ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+    }
+
+    fun radioOnline(view: View){
+        et_cadastro_evento_cep.visibility = View.INVISIBLE
+    }
+
+    fun radioPresencial(view: View){
+        et_cadastro_evento_cep.visibility = View.INVISIBLE
     }
 
 
